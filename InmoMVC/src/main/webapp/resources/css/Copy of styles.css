@@ -4,74 +4,14 @@ body {
 	text-align: center;
 }
 
-h1 {
-	font-family: Arial;
-	font-size:25px;
-	text-align : center;
-	color : #ffffff;
-	margin:0;
-}	font-family: Arial;
-
-h2 {
-	font-family: Arial;
-	font-size:20px;
-	text-align : left;
-	color:#486895;
-	text-transform: capitalize;
-}
-
-.header{
-       width:700px;
-       height:50px;
-       background-color:#005fbf;
-       border-width:0px;
-       margin:0px;
-}
-
-.footer{
-       width:auto;
-       height:30px;
-       background-color:#005fbf;
-       border-width:0px;
-       margin:0px;
-}
-
-.footer h6{
-       text-align:center;
-       text-transform:uppercase;
-       margin:5px auto;
-       color:#ffffff;
-       	font-family: Arial;
-       font-size:10px;
-} 
-
-#container {
-       background-color:#aaaaaa;
-       border-width:0px;
-       margin: 0 auto;
-       width:700px;
-       height:auto;
-}
-
-/* DIV Izquierdo para sacar la lista de tareas */
-
 .divTareas {
-       width:100px;
-       height:auto;
-       background-color:#EFEFEF;
-       border-width:0px;
-       margin:0 0 0 0px;
-       float:left;
-       padding:10px;
+	margin: 0 auto 0 auto;
+	padding: 0px;
+	background-color: #000;
 }
 
 .divTareas ul {
-       list-style-type:none;
-	   font:bold 11px Verdana, Arial, Helvetica, sans-serif;
-       color:#586885;
-       line-height: 140%;
-       text-transform:capitalize;
-       padding: 0px;
+	list-style-type:none;
 }
 
 .divTareas li.opcion {
@@ -91,20 +31,18 @@ h2 {
 }
 
 .divTareas input.opcion[type="text"] {
-	width: 78px;
+    width: 150px;
     display: block;
-    margin: 10px;
+    margin-bottom: 10px;
     background-color: yellow;
 }
 
-/* DIV Centrado para sacar la lista de productos */
+
+/* Tabla para sacar la lista de productos */
 .divListado {
-       width:380px;
-       height:auto;
-       background-color:#FFF;
-       border-width:0px;
-       margin:0 0px 0 127px;
-       padding: 10px;    
+	margin: 0 auto 0 auto;
+	padding: 0px;
+	text-align:left;
 }
 
 .divListado a {
@@ -117,6 +55,7 @@ h2 {
 	margin: 0 auto 0 auto;
 	padding: .28rem;
 	border: 5px;
+	width: 50%;
 }
 
 .divListado tbody {
@@ -129,10 +68,9 @@ h2 {
 	background-color: #005fbf;
 	text-align: center;
 	font-size: 20px;
-	margin: 0 auto 0 auto;
+	font-fam	margin: 0 auto 0 auto;
 	padding: 0px;
-	text-align:left;
-	font-family: Arial;
+	text-align:left;ily: Arial;
 	font-weight: bold;
 	color: #ffffff;
 }
@@ -169,25 +107,21 @@ h2 {
 	color: #000000;
 }
 
-/* DIV Derecho para sacar los detalles */
+/* Tabla para sacar los detalles */
 
 .TableDetalles {
-	   width:150px;
-       height:auto;
-       background-color:#EFEFEF;
-       border-width:0px;
-       margin:0px;
-       float:right;
-       padding:10px;
+	margin: 0 auto 0 auto;
+	padding: 0px;
+	text-align:left;
 }
 
 .TableDetalles table {
-/* 	border-collapse: collapse; */
-/* 	border-spacing: 0; */
-/* 	margin: 0 auto 0 auto; */
-/* 	padding: .28rem; */
-/* 	border: 5px; */
-/* 	width: 30%; */
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 auto 0 auto;
+	padding: .28rem;
+	border: 5px;
+	width: 30%;
 }
 
 .TableDetalles tbody {
@@ -216,7 +150,7 @@ h2 {
 
 .TableDetalles td {
 	vertical-align: middle;
-	background-color: #d4d4aa;
+	background-color: #d4ffaa;
 	border: 5px;
 	text-align: left;
 	padding: .28rem;
@@ -262,7 +196,7 @@ h2 {
 }
 .icon-pencil2:before {
 	content: "\e603";
-}	
+}
 .icon-image:before {
 	content: "\e604";
 }

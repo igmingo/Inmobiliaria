@@ -11,53 +11,75 @@
 </head>
 
 <body>
-	<div id="Tareas" class="divTareas">
-		<ul>
-			<li class="opcion"><a id="btnAlta" class="opcion" href="altaInmueble.html"><span class="icon-home"></span> Nuevo Inmueble</a></li>
-			<li class="opcion"><a id="btnAlta" class="opcion" href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
-			<li class="opcion"><a id="btnAlta" class="opcion" href="altaInquilino.html"><span class="icon-user"></span> Nuevo Inquilino</a></li>
-			<li class="opcion">
-<!-- 				<input type="button" id="btnBuscar" value="Buscar" onclick="buscar()"> -->
-				<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>
-				<input class="opcion" type="text" id="txtBuscar" placeholder="Búsqueda de inmueble">
-			</li>
-		</ul>
-	</div>
-<!-- 	<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a> -->
-	<br />
-	<br />
-	<div id="divLista" class="divListado">
-		<table id="tblDatos">
-			<thead>
-				<tr>
-					<th>idInmueble</th>
-					<th>Dirección</th>
-					<th>Precio</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${inmuebles }" var="inmueble">
+	<div id="container">
+	
+		<div class="header">
+			<h1>Inmobiliaria Teide IV</h1>
+		</div>
+		
+		<div id="Tareas" class="divTareas">
+		<h2>Tareas</h2>
+			<ul class="opcion">
+				<li class="opcion"><a id="btnAlta" class="opcion"
+					href="altaInmueble.html"><span class="icon-home"></span> Nuevo
+						Inmueble</a></li>
+				<li class="opcion"><a id="btnAlta" class="opcion"
+					href="altaPropietario.html"><span class="icon-user2"></span>
+						Nuevo Propietario</a></li>
+				<li class="opcion"><a id="btnAlta" class="opcion"
+					href="altaInquilino.html"><span class="icon-user"></span> Nuevo
+						Inquilino</a></li>
+				<li class="opcion">
+					<!-- 				<input type="button" id="btnBuscar" value="Buscar" onclick="buscar()"> -->
+					<input class="opcion" type="text" id="txtBuscar" placeholder="Búsqueda de inmueble">
+					<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span
+						class="icon-search"></span></a>				
+				</li>
+			</ul>
+		</div>
+		
+		<div class="TableDetalles" id="divDetalle">
+		<h2>Detalles</h2>
+		</div>
+		
+		<!-- 	<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a> -->
+
+		<div id="divLista" class="divListado">
+		<h2>Listado de Inmuebles</h2>
+			<table id="tblDatos">
+				<thead>
 					<tr>
-						<td>${inmueble.idInmueble }</td>
-						<td>${inmueble.direccion }</td>
-						<td>${inmueble.precio }€</td>
-						<td><a href="#" id="lnkDetalle"
-							onclick="evento(${inmueble.idInmueble})"
-							title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
-							<a href="modificarInmueble-${inmueble.idInmueble}.html"
-							title="Editar Inmueble"><span class="icon-pencil"></span></a> <a
-							href="detalle-${inmueble.idInmueble}.html"
-							title="Abrir página de Detalles"><span class="icon-file"></span></a>
-							<a href="#" id="lnkBorrar"
-							onclick="borrar(${inmueble.idInmueble})"
-							title="Eliminar Inmueble"><span class="icon-remove"></span></a></td>
+						<th>idInmueble</th>
+						<th>Dirección</th>
+						<th>Precio</th>
+						<th>Acciones</th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					<c:forEach items="${inmuebles }" var="inmueble">
+						<tr>
+							<td>${inmueble.idInmueble }</td>
+							<td>${inmueble.direccion }</td>
+							<td>${inmueble.precio }€</td>
+							<td><a href="#" id="lnkDetalle"
+								onclick="evento(${inmueble.idInmueble})"
+								title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
+								<a href="modificarInmueble-${inmueble.idInmueble}.html"
+								title="Editar Inmueble"><span class="icon-pencil"></span></a> <a
+								href="detalle-${inmueble.idInmueble}.html"
+								title="Abrir página de Detalles"><span class="icon-file"></span></a>
+								<a href="#" id="lnkBorrar" onclick="borrar(${inmueble.idInmueble})"
+								title="Eliminar Inmueble"><span class="icon-remove"></span></a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>	
+		<div class="footer">
+			<h6>2014, IgMingo. Curso de Programador de Apliaciones
+				Orientadas a Objetos</h6>
+		</div>
 	</div>
-	<div class="TableDetalles" id="divDetalle"></div>
 </body>
 
 <script type="text/javascript"
