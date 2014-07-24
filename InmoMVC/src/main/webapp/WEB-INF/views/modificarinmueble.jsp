@@ -6,23 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Modificar Producto</title>
+<title>Modificar Inmueble</title>
 </head>
 <body>
-
-Datos del Producto<br/>
-	<form:form method="post" commandName="producto">
-			<form:hidden path="idProducto"/>
-	Nombre: <form:input path="nombre" /><br />
+Datos del Inmueble<br/>
+<!-- es una etiqueta de Spring, en vez de un action es un commandName (un objeto que enviamos de vuelta) -->
+	<form:form method="post" commandName="inmueble">
+<!-- 	En vez de un name, se usa el path (la ruta de la propiedad de la Clase) (igual que en la clase) -->
+				<form:hidden path="idInmueble"/>
+	Dirección: <form:textarea path="direccion" /><br />
 	Precio: <form:input path="precio" /><br />
 	<form:errors path="precio"/>
-	Existencia: <form:input path="existencias" /><br />
-	<form:errors path="existencias"/>
-	Categoría: <form:select path="idCategoria">
-					<form:options items="${opciones_categorias}" />
+	Propietario: <form:select path="propietario.idPropietario">
+					<form:options items="${opciones_propietarios}" />
 			   </form:select><br />
-	Descripción: <form:textarea path="descripcion" /><br />
-	Foto: <form:input path="foto" /><br />
+	Inquilino: <form:select path="inquilino.idInquilino">
+					<form:options items="${opciones_inquilinos}" />
+			   </form:select><br />
 			<input type="submit" value="Guardar"/>		
 	</form:form>
 </body>

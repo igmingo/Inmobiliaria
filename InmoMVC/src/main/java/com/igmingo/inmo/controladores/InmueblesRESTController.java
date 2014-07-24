@@ -38,7 +38,7 @@ public class InmueblesRESTController {
 		if(texto.equals("BusquedA_VaciA"))
 			texto="";
 		Map<String, Object> params=new HashMap();
-		params.put("texto", "%"+texto+"%");
+		params.put("textobuscado", "%"+texto+"%");
 		List<Inmueble> l=daoInmuebles.find("inmueble.buscador", params);
 		return l;
 	}

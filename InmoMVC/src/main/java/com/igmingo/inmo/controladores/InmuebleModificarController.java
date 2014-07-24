@@ -9,17 +9,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.igmingo.inmo.modelo.Inmueble;
+import com.igmingo.inmo.modelo.viewfoms.InmuebleViewForm;
 import com.igmingo.inmo.repositorios.RepositorioInmuebles;
 import com.igmingo.inmo.repositorios.RepositorioInquilinos;
 import com.igmingo.inmo.repositorios.RepositorioPropietarios;
-import com.igmingo.inmo.modelo.viewfoms.InmuebleViewForm;
 
 @Controller
-@RequestMapping(value = "/altaInmueble.html")
-public class InmuebleAltaController {
+public class InmuebleModificarController {
 
 	@Autowired
 	RepositorioInmuebles daoInmuebles;
@@ -28,22 +29,27 @@ public class InmuebleAltaController {
 	@Autowired
 	RepositorioPropietarios daoPropietarios;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public String alta(ModelMap modelo) {
-		InmuebleViewForm vistainmueble = new InmuebleViewForm();
-		modelo.addAttribute("inmueble", vistainmueble);
-		Map<Integer, String> lpropi = daoPropietarios.getMapaOptions();
-		Map<Integer, String> linqui = daoInquilinos.getMapaOptions();
+	@RequestMapping(value = "/modificarInmueble-{id}.html", method = RequestMethod.GET)
+	public String modificar(ModelMap modelo, @PathVariable int id) {
 
-		modelo.addAttribute("opciones_propietarios", lpropi);
+		Inmueble inmu = daoInmuebles.get(Inmueble.class, id);
+		InmuebleViewForm iv = new InmuebleViewForm();
+		iv.fromInmueble(inmu);
+		modelo.addAttribute("inmueble", iv);
+		
+		Map<Integer, String> linqui = daoInquilinos.getMapaOptions();
 		modelo.addAttribute("opciones_inquilinos", linqui);
-		return "altainmueble";
+		
+		Map<Integer, String> lpropi = daoPropietarios.getMapaOptions();
+		modelo.addAttribute("opciones_propietarios", lpropi);
+
+		return "modificarinmueble";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public String doAlta(@ModelAttribute("inmueble") InmuebleViewForm vistainmueble,
+	@RequestMapping(value = "/modificarInmueble-{id}.html", method = RequestMethod.POST)
+	public String doModificar(
+			@ModelAttribute("inmueble") InmuebleViewForm inmueble,
 			BindingResult resultado, HttpServletRequest request) {
-		
 		if (resultado.hasErrors()) {
 			Map<Integer, String> linqui = daoInquilinos.getMapaOptions();
 			request.setAttribute("opciones_inquilinos", linqui);
@@ -51,9 +57,9 @@ public class InmuebleAltaController {
 			Map<Integer, String> lpropi = daoPropietarios.getMapaOptions();
 			request.setAttribute("opciones_propietarios", lpropi);
 						
-			return "altainmueble";
+			return "modificarinmueble";
 		}
-		daoInmuebles.add(vistainmueble.getInmueble());
+		daoInmuebles.update(inmueble.getInmueble());
 		return "redirect:/listado.html";
 	}
 	

@@ -4,18 +4,52 @@ body {
 	text-align: center;
 }
 
+.divTareas {
+	margin: 0 auto 0 auto;
+	padding: 0px;
+	background-color: #000;
+}
+
+.divTareas ul {
+	list-style-type:none;
+}
+
+.divTareas li.opcion {
+   float:left;
+   text-align: center;
+   margin:0px 1px;
+   background:#005fbf;
+}
+.divTareas a.opcion {
+   text-decoration: none;
+   color: #ffffff;
+   display:block;
+   padding:7px; 
+}
+.divTareas a.opcion:hover {
+   background:#ff5555;
+}
+
+.divTareas input.opcion[type="text"] {
+    width: 150px;
+    display: block;
+    margin-bottom: 10px;
+    background-color: yellow;
+}
+
+
 /* Tabla para sacar la lista de productos */
-.CSSTable {
+.divListado {
 	margin: 0 auto 0 auto;
 	padding: 0px;
 	text-align:left;
 }
 
-.CSSTable a {
+.divListado a {
 	text-decoration: none;
 }
 
-.CSSTable table {
+.divListado table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin: 0 auto 0 auto;
@@ -24,43 +58,45 @@ body {
 	width: 50%;
 }
 
-.CSSTable tbody {
+.divListado tbody {
 	border: 5px;
 }
 
-.CSSTable th {
+.divListado th {
 	padding: .28rem;
 	border: 5px;
 	background-color: #005fbf;
 	text-align: center;
 	font-size: 20px;
-	font-family: Arial;
+	font-fam	margin: 0 auto 0 auto;
+	padding: 0px;
+	text-align:left;ily: Arial;
 	font-weight: bold;
 	color: #ffffff;
 }
 
-.CSSTable tr {
+.divListado tr {
 	padding: .28rem;
 	border: 5px;
 }
 
-.CSSTable tr:nth-child(odd) {
+.divListado tr:nth-child(odd) {
 	background-color: #aad4ff;
 }
 
-.CSSTable tr:nth-child(odd):hover {
+.divListado tr:nth-child(odd):hover {
 	background-color: #ffff00;
 }
 
-.CSSTable tr:nth-child(even) {
+.divListado tr:nth-child(even) {#aaaaaa
 	background-color: #ffffff;
 }
 
-.CSSTable tr:nth-child(even):hover {
+.divListado tr:nth-child(even):hover {
 	background-color: #ffff00;
 }
 
-.CSSTable td {
+.divListado td {
 	padding: .28rem;
 	border: 5px;
 	vertical-align: middle;

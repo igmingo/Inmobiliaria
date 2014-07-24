@@ -11,10 +11,7 @@
 <body>
 
 Datos del Inmueble<br/>
-<!-- es una etiqueta de Spring, en vez de un action es un commandName (un objeto que enviamos de vuelta) -->
 	<form:form method="post" commandName="inmueble">
-<!-- 	En vez de un name, se usa el path (la ruta de la propiedad de la Clase) (igual que en la clase) -->
-<!--	Nombre: <form:input path="idInmueble" /><br /> -->
 	Dirección: <form:textarea path="direccion" /><br />
 	Precio: <form:input path="precio" /><br />
 	<form:errors path="precio"/>
@@ -24,8 +21,6 @@ Datos del Inmueble<br/>
 	Inquilino: <form:select path="inquilino.idInquilino">
 					<form:options items="${opciones_inquilinos}" />
 			   </form:select><br />
-			   
-
 			<input type="submit" value="Guardar"/>		
 	</form:form>
 </body>

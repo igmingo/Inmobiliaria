@@ -24,7 +24,7 @@ import org.hibernate.annotations.NamedQuery;
     ,catalog="teide2014"
 )
 
-@NamedQuery (name="inmueble.buscador", query="from Inmueble e where e.direccion like :textobuscar")
+@NamedQuery (name="inmueble.buscador", query="from Inmueble e where e.direccion like :textobuscado")
 public class Inmueble  implements java.io.Serializable {
 
 
