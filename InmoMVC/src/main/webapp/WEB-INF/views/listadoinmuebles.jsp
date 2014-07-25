@@ -12,44 +12,56 @@
 
 <body>
 	<div id="container">
-	
 		<div class="header">
-			<h1>Inmobiliaria Teide IV</h1>
+			<div id="divTitulo">
+				<h1>Inmobiliaria Teide IV</h1>
+			</div>
+				<ul>
+					<li class="opcion"><h1><a class="opcion" href="listadoinmuebles.html" title="INMUEBLES"><span class="icon-home"></span></a></h1></li>
+					<li class="opcion"><h1><a class="opcion" href="listadopropietarios.html" title="PROPIETARIOS"><span class="icon-user2"></span></a></h1></li>
+					<li class="opcion"><h1><a class="opcion" href="listadoinquilinos.html" title="INQUILINOS"><span class="icon-user"></span></a></h1></li>
+				</ul>
 		</div>
-		
+
 		<div id="Tareas" class="divTareas">
-		<h2>Tareas</h2>
-			<ul class="opcion">
+			<h2>Tareas</h2>
+			<ul class="opciones">
 				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaInmueble.html"><span class="icon-home"></span> Nuevo
-						Inmueble</a></li>
+					href="altaInmueble.html"><span class="icon-home"></span> Nuevo Inmueble</a></li>
 				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaPropietario.html"><span class="icon-user2"></span>
-						Nuevo Propietario</a></li>
+					href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
 				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaInquilino.html"><span class="icon-user"></span> Nuevo
-						Inquilino</a></li>
-				<li class="opcion">
-					<!-- 				<input type="button" id="btnBuscar" value="Buscar" onclick="buscar()"> -->
-					<input class="opcion" type="text" id="txtBuscar" placeholder="Búsqueda de inmueble">
-					<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span
-						class="icon-search"></span></a>				
+					href="altaInquilino.html"><span class="icon-user"></span> Nuevo	Inquilino</a></li>
+				<li class="opcion"><input class="opcion" type="text" id="txtBuscar"	placeholder="Búsqueda de inmueble">
+					<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>
+				<li class="opcion"><input class="opcion" type="text" id="txtEntre1" placeholder="€">-<input class="opcion" type="text" id="txtEntre2" placeholder="€">
+					<a class="opcion" id="btnBuscar" href="javascript:entre()"><span class="icon-search"></span></a>
 				</li>
 			</ul>
 		</div>
-		
-		<div class="TableDetalles" id="divDetalle">
-		<h2>Detalles</h2>
+
+		<div class="divDetalles" id="divDetalles">
+			<h2>Detalles</h2>
+			<table id="tblDetalles">
+				<thead>
+					<tr>
+						<th>Detalles</th>
+						<th>Inmueble</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		
-		<!-- 	<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a> -->
 
 		<div id="divLista" class="divListado">
-		<h2>Listado de Inmuebles</h2>
+			<h2>Listado de Inmuebles</h2>
 			<table id="tblDatos">
 				<thead>
 					<tr>
-						<th>idInmueble</th>
+						<th>id</th>
 						<th>Dirección</th>
 						<th>Precio</th>
 						<th>Acciones</th>
@@ -60,24 +72,25 @@
 						<tr>
 							<td>${inmueble.idInmueble }</td>
 							<td>${inmueble.direccion }</td>
-							<td>${inmueble.precio }€</td>
-							<td><a href="#" id="lnkDetalle"
-								onclick="evento(${inmueble.idInmueble})"
-								title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
-								<a href="modificarInmueble-${inmueble.idInmueble}.html"
-								title="Editar Inmueble"><span class="icon-pencil"></span></a> <a
-								href="detalle-${inmueble.idInmueble}.html"
-								title="Abrir página de Detalles"><span class="icon-file"></span></a>
-								<a href="#" id="lnkBorrar" onclick="borrar(${inmueble.idInmueble})"
-								title="Eliminar Inmueble"><span class="icon-remove"></span></a></td>
+							<td class="tdPrecio" >${inmueble.precio }€</td>
+							<td class="tdAcciones">
+								<a href="#" id="lnkDetalle" onclick="evento(${inmueble.idInmueble})" title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
+								
+								<a href="modificarInmueble-${inmueble.idInmueble}.html" title="Editar Inmueble"><span class="icon-pencil"></span></a>
+													
+								<a	href="detalle-${inmueble.idInmueble}.html" title="Abrir página de Detalles"><span class="icon-file"></span></a>
+								
+								<a href="#" id="lnkBorrar" onclick="borrar(${inmueble.idInmueble})" title="Eliminar Inmueble"><span class="icon-remove"></span></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>	
-		<div class="footer">
-			<h6>2014, IgMingo. Curso de Programador de Apliaciones
-				Orientadas a Objetos</h6>
+		</div>
+		<div class="divfooter">
+			<h6>
+				&copy; 2014, <a href="http://www.IgMingo.com">www.IgMingo.com</a>.
+				Curso de Programador de Apliaciones Orientadas a Objetos
+			</h6>
 		</div>
 	</div>
 </body>
@@ -87,7 +100,7 @@
 
 <script type="text/javascript">
 
-function borrar(id){precio
+function borrar(id){
 	var datos={idInmueble:id};
 	var datosPasar=JSON.stringify(datos);
 	$.ajax(
@@ -109,37 +122,61 @@ function borrar(id){precio
 }
 
 
-function buscar() {
-	var tx=$("#txtBuscar").val();
-
-	if(tx=="")
-		tx="BusquedA_VaciA";
-
-	var url="inmueble/buscar/"+tx;
-
+function entre() {
+	var tx1=$("#txtEntre1").val();
+	var tx2=$("#txtEntre2").val();
+	if(tx1=="")
+		tx1="0";
+	if(tx2=="")
+		tx2="999999999";
+	var url="inmueble/entre/" + tx1 + "-" + tx2;
 	$.get(url, function (res){
-
 		var tabla=$("#tblDatos");
-
 		$("#tblDatos tbody tr").each(function(){
 			$(this).remove();
-		});
-		
-		//recorremos los datos devueltos con la búsqueda
-		
+		});	
 		for(var i=0;i<res.length;i++){
 			var h="";
 			h+="<tr>";
 			h+="<td>"+res[i].idInmueble+"</td>";
 			h+="<td>"+res[i].direccion+"</td>";
-			h+="<td>"+res[i].precio+"</td>";
-			h+="<td><a href='detalle.html?id="+res[i].idInmueble+"'> Abrir Detalles </a>";
-			h+="<a href='#' id='lnkDetalle' onclick='evento("+res[i].idInmueble+")'> Resumen Detalles </a>";
-			h+="<a href='#' id='lnkBorrar' onclick='borrar("+res[i].idInmueble+")'> Borrar Inmueble </a></td>";
-			h+="</tr>";
+			h+="<td class='tdPrecio'>"+res[i].precio+"€</td>";
+			h+="<td class='tdAcciones'>";
+			h+="<a href='#' id='lnkDetalle' onclick='evento("+res[i].idInmueble+")' title='Ver Detalles del Inmueble'><span class='icon-eye'></span></a>";
+			h+="<a href='modificarInmueble-"+res[i].idInmueble+ ".html' title='Editar Inmueble'><span class='icon-pencil'></span></a>";	
+			h+="<a href='detalle-"+res[i].idInmueble+".html' title='Abrir página de Detalles'><span class='icon-file'></span></a>";
+			h+="<a href='#' id='lnkBorrar' onclick='borrar("+res[i].idInmueble+")' title='Eliminar Inmueble'><span class='icon-remove'></span></a>";
+			h+="</td>";
 			tabla.append(h);
 		}
-		tabla.append(h);
+	});
+}
+
+
+function buscar() {
+	var tx=$("#txtBuscar").val();
+	if(tx=="")
+		tx="BusquedA_VaciA";
+	var url="inmueble/buscar/"+tx;
+	$.get(url, function (res){
+		var tabla=$("#tblDatos");
+		$("#tblDatos tbody tr").each(function(){
+			$(this).remove();
+		});	
+		for(var i=0;i<res.length;i++){
+			var h="";
+			h+="<tr>";
+			h+="<td>"+res[i].idInmueble+"</td>";
+			h+="<td>"+res[i].direccion+"</td>";
+			h+="<td class='tdPrecio'>"+res[i].precio+"€</td>";
+			h+="<td class='tdAcciones'>";
+			h+="<a href='#' id='lnkDetalle' onclick='evento("+res[i].idInmueble+")' title='Ver Detalles del Inmueble'><span class='icon-eye'></span></a>";
+			h+="<a href='modificarInmueble-"+res[i].idInmueble+ ".html' title='Editar Inmueble'><span class='icon-pencil'></span></a>";	
+			h+="<a href='detalle-"+res[i].idInmueble+".html' title='Abrir página de Detalles'><span class='icon-file'></span></a>";
+			h+="<a href='#' id='lnkBorrar' onclick='borrar("+res[i].idInmueble+")' title='Eliminar Inmueble'><span class='icon-remove'></span></a>";
+			h+="</td>";
+			tabla.append(h);
+		}
 	});
 }
 
@@ -151,14 +188,19 @@ function evento(id){
 //devuelve la informacion
 	$.get(url,function(res){
 
-		var resultado="<ul>";
-		resultado+="<table><tr><th>Detalles del Inmueble</th><th>"+res.idInmueble+"</th></tr>";
-		resultado+="<tr><td>Dirección:</td><td>"+res.direccion+"</td></tr>";
-		resultado+="<tr><td>Precio:</td><td>"+res.precio+"</td></tr>";
-		resultado+="<tr><td>Propietario:</td><td>"+res.propietario.nombre+"</td></tr>";
-		resultado+="<tr><td>Inquilino:</td><td>"+res.inquilino.nombre+"</td></tr></table>";
-		//$("#divDetalle") es el objeto, y le aplico el método html con el resultado
-		$("#divDetalle").html(resultado);
+		var tabla=$("#tblDetalles");
+
+		$("#tblDetalles tbody tr").each(function(){
+			$(this).remove();
+		});
+
+		var h="";
+		h+="<tr><td>Dirección:</td><td>"+res.direccion+"</td></tr>";
+		h+="<tr><td>Precio:</td><td>"+res.precio+"</td></tr>";
+		h+="<tr><td>Propietario:</td><td>"+res.propietario.nombre+"</td></tr>";
+		h+="<tr><td>Inquilino:</td><td>"+res.inquilino.nombre+"</td></tr>";
+		tabla.append(h);
+
 		});
 }
 </script>

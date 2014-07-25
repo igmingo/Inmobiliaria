@@ -39,13 +39,46 @@ public class InmueblesRESTController {
 			texto="";
 		Map<String, Object> params=new HashMap();
 		params.put("textobuscado", "%"+texto+"%");
-		List<Inmueble> l=daoInmuebles.find("inmueble.buscador", params);
+		List<Inmueble> l=daoInmuebles.find("inmueble.direccion", params);
+		return l;
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,
+			value="/menosde/{valor}")
+	public @ResponseBody List<Inmueble> 
+			menorque(@PathVariable Double valor){
+		Map<String, Object> params=new HashMap();
+		params.put("valorbuscado", valor);
+		List<Inmueble> l=daoInmuebles.find("inmueble.menorque", params);
+		return l;
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,
+			value="/masde/{valor}")
+	public @ResponseBody List<Inmueble> 
+			mayorque(@PathVariable Double valor){
+		Map<String, Object> params=new HashMap();
+		params.put("valorbuscado", valor);
+		List<Inmueble> l=daoInmuebles.find("inmueble.mayorque", params);
+		return l;
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,
+			value="/entre/{valor1}-{valor2}")
+	public @ResponseBody List<Inmueble> 
+			entre(@PathVariable Double valor1, @PathVariable Double valor2){
+		Map<String, Object> params=new HashMap();
+		params.put("minvalorbuscado", valor1);
+		params.put("maxvalorbuscado", valor2);
+		
+		
+		List<Inmueble> l=daoInmuebles.find("inmueble.entre", params);
 		return l;
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE)
-	public @ResponseBody String borrar(@RequestBody Inmueble inmueble){
-		daoInmuebles.delete(inmueble);
+	public @ResponseBody String borrar(@RequestBody Inmueble inmu){
+		daoInmuebles.delete(inmu);
 		return "borrado";
 	}
 }

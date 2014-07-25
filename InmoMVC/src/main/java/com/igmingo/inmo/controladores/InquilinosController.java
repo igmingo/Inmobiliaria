@@ -8,29 +8,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.igmingo.inmo.modelo.Inmueble;
-import com.igmingo.inmo.repositorios.RepositorioInmuebles;
+import com.igmingo.inmo.modelo.Inquilino;
+import com.igmingo.inmo.repositorios.RepositorioInquilinos;
 
 @Controller
-public class InmueblesController {
+public class InquilinosController {
 
 	@Autowired
-	RepositorioInmuebles daoInmuebles;
+	RepositorioInquilinos daoInquilinos;
 	
-	@RequestMapping(value="/listadoinmuebles.html")
+	@RequestMapping(value="listadoinquilinos.html")
 	public String listado(Model modelo) {
-		List<Inmueble> li=daoInmuebles.get(Inmueble.class);
-		modelo.addAttribute("inmuebles", li);
+		List<Inquilino> li=daoInquilinos.get(Inquilino.class);
+		modelo.addAttribute("inquilinos", li);
 
-		return "listadoinmuebles";
+		return "listadoinquilinos";
 	}
 	
 	// Es recomendable por el SEO, poner una URL seo
-	@RequestMapping(value="detalle-{id}.html")
+	@RequestMapping(value="inquilino-{id}.html")
 	public String detalle(Model modelo,@PathVariable int id){
-		Inmueble p=daoInmuebles.get(Inmueble.class, id);
-		modelo.addAttribute("inmueble", p);
-		return "detalleinmueble";
+		Inquilino p=daoInquilinos.get(Inquilino.class, id);
+		modelo.addAttribute("inquilino", p);
+		return "detalleinquilino";
 	}	
 	
 }
