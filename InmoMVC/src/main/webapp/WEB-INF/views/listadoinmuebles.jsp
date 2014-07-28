@@ -31,12 +31,7 @@
 				<li class="opcion"><a id="btnAlta" class="opcion"
 					href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
 				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaInquilino.html"><span class="icon-user"></span> Nuevo	Inquilino</a></li>
-				<li class="opcion"><input class="opcion" type="text" id="txtBuscar"	placeholder="Búsqueda de inmueble">
-					<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>
-				<li class="opcion"><input class="opcion" type="text" id="txtEntre1" placeholder="€">-<input class="opcion" type="text" id="txtEntre2" placeholder="€">
-					<a class="opcion" id="btnBuscar" href="javascript:entre()"><span class="icon-search"></span></a>
-				</li>
+					href="altaInquilino.html"><span class="icon-user"></span> Nuevo Inquilino</a></li>
 			</ul>
 		</div>
 
@@ -58,6 +53,12 @@
 
 		<div id="divLista" class="divListado">
 			<h2>Listado de Inmuebles</h2>
+			<div class="divBusquedas">
+					<input class="busqueda" type="text" id="txtBuscar" placeholder="Dirección inmueble" size="22">
+					<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>&nbsp;&nbsp;&nbsp;
+					<input class="busqueda" type="text" id="txtEntre1" placeholder="min €"  size="5">-<input class="busqueda" type="text" id="txtEntre2" placeholder="max €" size="5">
+					<a id="btnEntre" href="javascript:entre()"><span class="icon-search"></span></a>
+			</div>
 			<table id="tblDatos">
 				<thead>
 					<tr>
@@ -70,7 +71,7 @@
 				<tbody>
 					<c:forEach items="${inmuebles }" var="inmueble">
 						<tr>
-							<td>${inmueble.idInmueble }</td>
+							<td class="tdId">${inmueble.idInmueble }</td>
 							<td>${inmueble.direccion }</td>
 							<td class="tdPrecio" >${inmueble.precio }€</td>
 							<td class="tdAcciones">
@@ -138,7 +139,7 @@ function entre() {
 		for(var i=0;i<res.length;i++){
 			var h="";
 			h+="<tr>";
-			h+="<td>"+res[i].idInmueble+"</td>";
+			h+="<td class='tdId'>"+res[i].idInmueble+"</td>";
 			h+="<td>"+res[i].direccion+"</td>";
 			h+="<td class='tdPrecio'>"+res[i].precio+"€</td>";
 			h+="<td class='tdAcciones'>";

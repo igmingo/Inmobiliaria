@@ -28,12 +28,7 @@
 			<ul class="opcion">
 				<li class="opcion"><a class="opcion" href="altaInmueble.html"><span class="icon-home"></span> Nuevo Inmueble</a></li>
 				<li class="opcion"><a class="opcion" href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
-				<li class="opcion"><a class="opcion" href="altaInquilino.html"><span class="icon-user"></span> Nuevo	Inquilino</a></li>
-				<li class="opcion"><input class="opcion" type="text" id="txtBuscar"	placeholder="Nombre Inquilino">
-					<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>
-				<li class="opcion"><input class="opcion" type="text" id="txtDNI" placeholder="DNI">
-					<a class="opcion" id="btnBuscar" href="javascript:buscarDNI()"><span class="icon-search"></span></a>
-				</li>
+				<li class="opcion"><a class="opcion" href="altaInquilino.html"><span class="icon-user"></span> Nuevo Inquilino</a></li>
 			</ul>
 		</div>
 
@@ -55,6 +50,12 @@
 
 		<div id="divLista" class="divListado">
 			<h2>Listado de Inquilinos</h2>
+			<div class="divBusquedas">
+					<input class="busqueda" type="text" id="txtBuscar" placeholder="Nombre Inquilino" size="22">
+					<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>&nbsp;&nbsp;&nbsp;
+					<input class="busqueda" type="text" id="txtDNI" placeholder="DNI con letra"  size="10">
+					<a id="btnDNI" href="javascript:buscarDNI()"><span class="icon-search"></span></a>
+			</div>
 			<table id="tblDatos">
 				<thead>
 					<tr>
@@ -67,7 +68,7 @@
 				<tbody>
 					<c:forEach items="${inquilinos }" var="inquilino">
 						<tr>
-							<td>${inquilino.idInquilino }</td>
+							<td class="tdId">${inquilino.idInquilino }</td>
 							<td>${inquilino.nombre }</td>
 							<td class="tdDNI" >${inquilino.dni }</td>
 							<td class="tdAcciones">
@@ -83,7 +84,7 @@
 				</tbody>
 			</table>
 		</div>
-		<dientrev class="divfooter">
+		<div class="divfooter">
 			<h6>
 				&copy; 2014, <a href="http://www.IgMingo.com">www.IgMingo.com</a>.
 				Curso de Programador de Apliaciones Orientadas a Objetos
@@ -131,7 +132,7 @@ function buscarDNI() {
 		for(var i=0;i<res.length;i++){
 			var h="";
 			h+="<tr>";
-			h+="<td>"+res[i].idInquilino+"</td>";
+			h+="<td class='tdId'>"+res[i].idInquilino+"</td>";
 			h+="<td>"+res[i].nombre+"</td>";
 			h+="<td class='tdDNI'>"+res[i].dni+"</td>";
 			h+="<td class='tdAcciones'>";

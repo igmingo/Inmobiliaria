@@ -28,12 +28,7 @@
 			<ul class="opcion">
 				<li class="opcion"><a class="opcion" href="altaInmueble.html"><span class="icon-home"></span> Nuevo Inmueble</a></li>
 				<li class="opcion"><a class="opcion" href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
-				<li class="opcion"><a class="opcion" href="altaInquilino.html"><span class="icon-user"></span> Nuevo	Inquilino</a></li>
-				<li class="opcion"><input class="opcion" type="text" id="txtBuscar"	placeholder="Nombre Propietario">
-					<a class="opcion" id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>
-				<li class="opcion"><input class="opcion" type="text" id="txtEntre1" placeholder="DNI">
-					<a class="opcion" id="btnBuscar" href="javascript:buscarDNI()"><span class="icon-search"></span></a>
-				</li>
+				<li class="opcion"><a class="opcion" href="altaInquilino.html"><span class="icon-user"></span> Nuevo Inquilino</a></li>
 			</ul>
 		</div>
 
@@ -55,6 +50,12 @@
 
 		<div id="divLista" class="divListado">
 			<h2>Listado de Propietarios</h2>
+			<div class="divBusquedas">
+					<input class="busqueda" type="text" id="txtBuscar" placeholder="Nombre Inquilino" size="22">
+					<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>&nbsp;&nbsp;&nbsp;
+					<input class="busqueda" type="text" id="txtDNI" placeholder="DNI con letra"  size="10">
+					<a id="btnDNI" href="javascript:buscarDNI()"><span class="icon-search"></span></a>
+			</div>
 			<table id="tblDatos">
 				<thead>
 					<tr>
@@ -67,7 +68,7 @@
 				<tbody>
 					<c:forEach items="${propietarios }" var="propietario">
 						<tr>
-							<td>${propietario.idPropietario }</td>
+							<td class="tdId">${propietario.idPropietario }</td>
 							<td>${propietario.nombre }</td>
 							<td class="tdDNI" >${propietario.dni }</td>
 							<td class="tdAcciones">
@@ -131,7 +132,7 @@ function buscarDNI() {
 		for(var i=0;i<res.length;i++){
 			var h="";
 			h+="<tr>";
-			h+="<td>"+res[i].idPropietario+"</td>";
+			h+="<td class='tdId'>"+res[i].idPropietario+"</td>";
 			h+="<td>"+res[i].nombre+"</td>";
 			h+="<td class='tdDNI'>"+res[i].dni+"</td>";
 			h+="<td class='tdAcciones'>";
