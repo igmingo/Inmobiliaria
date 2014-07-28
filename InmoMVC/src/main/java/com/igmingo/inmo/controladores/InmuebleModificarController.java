@@ -60,7 +60,7 @@ public class InmuebleModificarController {
 			return "modificarinmueble";
 		}
 		daoInmuebles.update(inmueble.getInmueble());
-		return "redirect:/listado.html";
+		return "redirect:/listadoinmuebles.html";
 	}
 	
 }

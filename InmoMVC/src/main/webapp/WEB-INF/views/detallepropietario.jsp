@@ -8,31 +8,28 @@
 <title>Detalle del producto</title>
 </head>
 <body>
-	<table><tr><th>Detalle de Inquilino ${inquilino.idInquilino}</th></tr>
+	<table><tr><th>Detalle del Propietario ${propietario.idPropietario}</th></tr>
 		<tr>
 			<td>Nombre</td>
-			<td>${inquilino.nombre}</td>
+			<td>${propietario.nombre}</td>
 		</tr>
-				<tr>
+		<tr>
 			<td>DNI</td>
-			<td>${inquilino.dni}</td>
+			<td>${propietario.dni}</td>
 		</tr>
 		<tr>
-			<td>Edad</td>
-			<td>${inquilino.edad}</td>
+			<td>Ganancias mensuales</td>
+		<td>${propGana} €</td>
 		</tr>
-		<tr>
-			<td>Trabaja</td>
-			<td>${inquilino.trabaja}</td>
-		</tr>
-	</table>
-	<table><tr><th>Inmuebles alquilados por ${inquilino.nombre}</th></tr>
+		</table>
+		<table><tr><th>Inmuebles en alquiler de ${propietario.nombre}</th></tr>
 		<c:forEach items="${inmuebles }" var="inmueble">
 			<tr>
 				<td>${inmueble.direccion }</td>
 				<td>${inmueble.precio }</td>
+				<td>${inmueble.inquilino.nombre }</td>
 			</tr>
-	</c:forEach>
+		</c:forEach>
 	</table>
 </body>
 </html>

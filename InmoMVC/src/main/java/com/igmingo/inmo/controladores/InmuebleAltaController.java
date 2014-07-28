@@ -54,7 +54,7 @@ public class InmuebleAltaController {
 			return "altainmueble";
 		}
 		daoInmuebles.add(vistainmueble.getInmueble());
-		return "redirect:/listado.html";
+		return "redirect:/listadoinmuebles.html";
 	}
 	
 }

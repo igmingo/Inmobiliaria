@@ -9,45 +9,48 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.igmingo.inmo.modelo.Inquilino;
+import com.igmingo.inmo.modelo.viewfoms.InquilinoViewForm;
 import com.igmingo.inmo.repositorios.RepositorioInmuebles;
 import com.igmingo.inmo.repositorios.RepositorioInquilinos;
-import com.igmingo.inmo.modelo.viewfoms.InquilinoViewForm;
 
 @Controller
-@RequestMapping(value = "/altaInquilino.html")
-public class InquilinoAltaController {
-	
-	@Autowired
-	RepositorioInquilinos daoInquilinos;	
+public class InquilinoModificarController {
+
 	@Autowired
 	RepositorioInmuebles daoInmuebles;
+	@Autowired
+	RepositorioInquilinos daoInquilinos;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public String alta(ModelMap modelo) {
-		InquilinoViewForm vistainqui = new InquilinoViewForm();
-		modelo.addAttribute("inquilino", vistainqui);
-		Map<Integer, String> linmu = daoInmuebles.getMapaOptions();
+	@RequestMapping(value = "/modificarInquilino-{id}.html", method = RequestMethod.GET)
+	public String modificar(ModelMap modelo, @PathVariable int id) {
 
+		Inquilino inqui = daoInquilinos.get(Inquilino.class, id);
+		InquilinoViewForm pv = new InquilinoViewForm();
+		pv.fromInquilino(inqui);
+		modelo.addAttribute("inquilino", pv);
+		
+		Map<Integer, String> linmu = daoInmuebles.getMapaOptions();
 		modelo.addAttribute("opciones_inmuebles", linmu);
-		return "altainquilino";
+
+		return "modificarinquilino";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public String doAlta(@ModelAttribute("inquilino") InquilinoViewForm vistainqui,
+	@RequestMapping(value = "/modificarInquilino-{id}.html", method = RequestMethod.POST)
+	public String doModificar(
+			@ModelAttribute("inquilino") InquilinoViewForm inquilino,
 			BindingResult resultado, HttpServletRequest request) {
-		
 		if (resultado.hasErrors()) {
-			
 			Map<Integer, String> linmu = daoInmuebles.getMapaOptions();
 			request.setAttribute("opciones_inmuebles", linmu);
 						
-			return "altainquilino";
+			return "modificarinquilino";
 		}
-		daoInquilinos.add(vistainqui.getInquilino());
+		daoInquilinos.update(inquilino.getInquilino());
 		return "redirect:/listadoinquilinos.html";
-	}
-	
+	}	
 }

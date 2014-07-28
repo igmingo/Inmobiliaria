@@ -1,16 +1,10 @@
 package com.igmingo.inmo.modelo.viewfoms;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
+import java.util.HashSet;
+import java.util.Set;
 import com.igmingo.inmo.modelo.Inmueble;
-import com.igmingo.inmo.modelo.Inquilino;
 import com.igmingo.inmo.modelo.Propietario;
-import com.igmingo.inmo.repositorios.RepositorioInmuebles;
-import com.igmingo.inmo.repositorios.RepositorioInquilinos;
 
 public class PropietarioViewForm {
 
