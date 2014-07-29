@@ -35,7 +35,11 @@ import org.hibernate.annotations.NamedQuery;
 public class Inmueble  implements java.io.Serializable {
 
 
-     private Integer idInmueble;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer idInmueble;
      private Inquilino inquilino;
      private Propietario propietario;
      private String direccion;

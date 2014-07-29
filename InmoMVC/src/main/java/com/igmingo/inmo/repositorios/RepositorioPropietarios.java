@@ -18,9 +18,7 @@ public class RepositorioPropietarios extends Repositorio<Propietario>{
 		
 	public Map<Integer, String> getMapaOptions(){
 		List<Propietario> l=get(Propietario.class);
-		Map<Integer, String> mapa=new HashMap<Integer, String>();
-		
-//		mapa.put(null, "Sin Propietario");
+		Map<Integer, String> mapa=new HashMap<Integer, String>();	
 		for (Propietario prop : l) {
 			mapa.put(prop.getIdPropietario(),prop.getNombre());
 		}

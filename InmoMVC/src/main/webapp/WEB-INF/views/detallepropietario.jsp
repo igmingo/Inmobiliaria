@@ -5,30 +5,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Detalle del producto</title>
+<link rel="stylesheet" href='<c:url value="/resources/css/styles.css" />' media="all" />
+<title>Detalle Propietario</title>
 </head>
 <body>
-	<table><tr><th>Detalle del Propietario ${propietario.idPropietario}</th></tr>
-		<tr>
-			<td>Nombre</td>
-			<td>${propietario.nombre}</td>
-		</tr>
-		<tr>
-			<td>DNI</td>
-			<td>${propietario.dni}</td>
-		</tr>
-		<tr>
-			<td>Ganancias mensuales</td>
-		<td>${propGana} €</td>
-		</tr>
-		</table>
-		<table><tr><th>Inmuebles en alquiler de ${propietario.nombre}</th></tr>
-		<c:forEach items="${inmuebles }" var="inmueble">
+	<div class="divPagDetalles">
+		<table class="tblPagDetalles">
 			<tr>
-				<td>${inmueble.direccion }</td>
-				<td>${inmueble.precio }</td>
+				<th colspan="2">Detalle del Propietario id ${propietario.idPropietario}</th>
 			</tr>
-		</c:forEach>
-	</table>
+			<tr>
+				<td>Nombre</td>
+				<td class="tdRight">${propietario.nombre}</td>
+			</tr>
+			<tr>
+				<td>DNI</td>
+				<td class="tdRight">${propietario.dni}</td>
+			</tr>
+			<tr>
+				<td>Ganancias mensuales</td>
+				<td class="tdRight">${propGana} €</td>
+			</tr>
+		</table>
+
+		<table class="tblPagDetalles">
+			<tr>
+				<th colspan="2">Inmuebles en alquiler de ${propietario.nombre}</th>
+			</tr>
+			<c:forEach items="${inmuebles }" var="inmueble">
+				<tr>
+					<td>${inmueble.direccion }</td>
+					<td class="tdRight">${inmueble.precio } €</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>

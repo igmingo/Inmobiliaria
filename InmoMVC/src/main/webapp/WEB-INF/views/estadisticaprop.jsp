@@ -5,25 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Estadisticas de Inmuebles</title>
+<link rel="stylesheet" href='<c:url value="/resources/css/styles.css" />' media="all" />
+<title>Estadisticas de Propietarios</title>
 </head>
 <body>
-	<table>
+	<div class="divPagDetalles">
+	<table class="tblPagDetalles">
 		<tr>
-			<th>Propietario con más inmuebles</th>
-			<th></th>
+			<th colspan="2">Propietario con más inmuebles</th>
 		</tr>
 		<tr>
 			<td>Nombre</td>
-			<td><a href="propietario-${propmax.idPropietario}.html">${propmax.nombre }</a></td>
+			<td class="tdRight"><a href="propietario-${propmax.idPropietario}.html">${propmax.nombre }</a></td>
 		</tr>
 		<tr>
 			<td>DNI</td>
-			<td>${propmax.dni }</td>
+			<td class="tdRight">${propmax.dni }</td>
 		</tr>
 		<tr>
 			<td>Inmuebles</td>
-			<td>${maxinmus }</td>
+			<td class="tdRight">${maxinmus }</td>
 		</tr>
 <!-- 		<tr> -->
 <!-- 			<td>Inmuebles en alquiler</td> -->
@@ -39,22 +40,23 @@
 <!-- 			</td> -->
 <!-- 		</tr> -->
 	</table>
-	<table>
+	<table class="tblPagDetalles">
 		<tr>
-			<th>Propietario con más ganancias</th>
+			<th colspan="2">Propietario con más ganancias</th>
 		</tr>
 		<tr>
 			<td>Nombre</td>
-			<td><a href="propietario-${propmasgana.idPropietario}.html">${propmasgana.nombre }</a></td>
+			<td class="tdRight"><a href="propietario-${propmasgana.idPropietario}.html">${propmasgana.nombre }</a></td>
 		</tr>
 		<tr>
 			<td>DNI</td>
-			<td>${propmasgana.dni }</td>
+			<td class="tdRight">${propmasgana.dni }</td>
 		</tr>
 		<tr>
 			<td>Ganancia</td>
-			<td>${masgana } €</td>
+			<td class="tdRight">${masgana } €</td>
 		</tr>
 	</table>
+</div>
 </body>
 </html>

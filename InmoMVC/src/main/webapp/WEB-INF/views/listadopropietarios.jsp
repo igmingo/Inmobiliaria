@@ -32,9 +32,9 @@
 			</ul>
 		</div>
 
-		<div class="divDetalles" id="divDetalles">
+		<div id="divDetalles" class="divDetalles" >
 			<h2>Detalles</h2>
-			<table id="tblDetalles">
+			<table id="tblDetalles" class="tblDetalles">
 				<thead>
 					<tr>
 						<th>Detalles</th>
@@ -83,6 +83,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="divBusquedas">
+				<a class="opcion" href="estadisticapropietarios.html"><span	class="icon-stats"></span> Estadisticas de Propietarios</a>
+			</div>
 		</div>
 		<div class="divfooter">
 			<h6>

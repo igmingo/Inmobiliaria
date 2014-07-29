@@ -3,6 +3,7 @@ package com.igmingo.inmo.modelo.viewfoms;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import com.igmingo.inmo.modelo.Inmueble;
 import com.igmingo.inmo.modelo.Propietario;
 
@@ -12,14 +13,16 @@ public class PropietarioViewForm {
     private String nombre;
     private String dni;
     private Set<Inmueble> inmuebles = new HashSet<Inmueble>(0);
+    private Integer[] idInmueble;
 
 	public PropietarioViewForm(Integer idPropietario, String nombre,
-			String dni, Set<Inmueble> inmuebles) {
+			String dni, Set<Inmueble> inmuebles, Integer[] idInmueble) {
 		super();
 		this.idPropietario = idPropietario;
 		this.nombre = nombre;
 		this.dni = dni;
 		this.inmuebles = inmuebles;
+		this.idInmueble = idInmueble;
 	}
 
 	public PropietarioViewForm() {
@@ -32,6 +35,15 @@ public class PropietarioViewForm {
 		propi.setNombre(nombre);
 		propi.setDni(dni);	
 		propi.setInmuebles(inmuebles);
+				
+		Set<Inmueble> s=new HashSet<Inmueble>();
+		for (Integer inmueble : idInmueble) {
+			Inmueble i=new Inmueble();
+			i.setIdInmueble(inmueble);
+			s.add(i);
+		}
+		propi.setInmuebles(s);
+		
 		return propi;
 	}
 	
@@ -40,6 +52,12 @@ public class PropietarioViewForm {
 		setNombre(propi.getNombre());
 		setDni(propi.getDni());
 		setInmuebles(propi.getInmuebles());
+		
+		idInmueble=new Integer[propi.getInmuebles().size()];
+		int i=0;
+		for (Inmueble inmueble : propi.getInmuebles()) {
+			idInmueble[i++]=inmueble.getIdInmueble();
+		}		
 	}
 
 	public Integer getIdPropietario() {
@@ -72,6 +90,14 @@ public class PropietarioViewForm {
 
 	public void setInmuebles(Set<Inmueble> inmuebles) {
 		this.inmuebles = inmuebles;
+	}
+
+	public Integer[] getIdInmueble() {
+		return idInmueble;
+	}
+
+	public void setIdInmueble(Integer[] idInmueble) {
+		this.idInmueble = idInmueble;
 	}
 	
 }

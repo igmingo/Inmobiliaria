@@ -23,13 +23,8 @@
 				</ul>
 		</div>
 
-		<div id="Tareas" class="divTareas">
-		</div>
-
-		<div class="divDetalles" id="divDetalles">
-		</div>
-
-		<div id="divLista" class="divListado">
+		<div id="HomeImage" class="divHomeImage">
+			<img width=770px src='<c:url value="/resources/images/inmobiliaria.jpg" />' alt="Teide IV Inmobiliaria" />
 		</div>
 
 		<div class="divfooter">

@@ -33,7 +33,11 @@ import org.hibernate.annotations.NamedQuery;
 public class Propietario  implements java.io.Serializable {
 
 
-     private Integer idPropietario;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer idPropietario;
      private String nombre;
      private String dni;
      private Set<Inmueble> inmuebles = new HashSet<Inmueble>(0);

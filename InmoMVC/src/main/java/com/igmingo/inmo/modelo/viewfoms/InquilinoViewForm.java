@@ -1,16 +1,9 @@
 package com.igmingo.inmo.modelo.viewfoms;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
-
 import com.igmingo.inmo.modelo.Inmueble;
 import com.igmingo.inmo.modelo.Inquilino;
-import com.igmingo.inmo.modelo.Propietario;
-import com.igmingo.inmo.repositorios.RepositorioInmuebles;
-import com.igmingo.inmo.repositorios.RepositorioInquilinos;
 
 public class InquilinoViewForm {
 
@@ -20,13 +13,14 @@ public class InquilinoViewForm {
     private int edad;
     private Boolean trabaja;
     private Set<Inmueble> inmuebles = new HashSet<Inmueble>(0);
+    private Integer[] idInmueble;
 
 	public InquilinoViewForm() {
 		super();
 	}
 
 	public InquilinoViewForm(Integer idInquilino, String dni, String nombre,
-			int edad, Boolean trabaja, Set<Inmueble> inmuebles) {
+			int edad, Boolean trabaja, Set<Inmueble> inmuebles, Integer[] idInmueble) {
 		super();
 		this.idInquilino = idInquilino;
 		this.dni = dni;
@@ -34,6 +28,7 @@ public class InquilinoViewForm {
 		this.edad = edad;
 		this.trabaja = trabaja;
 		this.inmuebles = inmuebles;
+		this.idInmueble = idInmueble;
 	}
 
 	public Inquilino getInquilino() {
@@ -44,6 +39,15 @@ public class InquilinoViewForm {
 		inqui.setEdad(edad);	
 		inqui.setTrabaja(trabaja);
 		inqui.setInmuebles(inmuebles);
+		
+		Set<Inmueble> s=new HashSet<Inmueble>();
+		for (Integer inmueble : idInmueble) {
+			Inmueble i=new Inmueble();
+			i.setIdInmueble(inmueble);
+			s.add(i);
+		}
+		inqui.setInmuebles(s);
+		
 		return inqui;
 	}
 	
@@ -54,6 +58,12 @@ public class InquilinoViewForm {
 		setEdad(inqui.getEdad());
 		setTrabaja(inqui.getTrabaja());
 		setInmuebles(inqui.getInmuebles());
+		
+		idInmueble=new Integer[inqui.getInmuebles().size()];
+		int i=0;
+		for (Inmueble inmueble : inqui.getInmuebles()) {
+			idInmueble[i++]=inmueble.getIdInmueble();
+		}	
 	}
 
 	public Integer getIdInquilino() {

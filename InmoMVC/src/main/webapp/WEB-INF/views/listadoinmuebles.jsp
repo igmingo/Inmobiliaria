@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href='<c:url value="/resources/css/styles.css" />' media="all" />
+<link rel="stylesheet" href='<c:url value="/resources/css/styles.css" />' media="all" />
 <title>Listado de Inmuebles</title>
 </head>
 
@@ -86,7 +85,11 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="divBusquedas">
+				<a class="opcion" href="estadisticainmuebles.html"><span class="icon-stats"></span> Estadisticas de Inmuebles</a>
+			</div>
 		</div>
+		
 		<div class="divfooter">
 			<h6>
 				&copy; 2014, <a href="http://www.IgMingo.com">www.IgMingo.com</a>.

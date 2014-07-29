@@ -34,9 +34,11 @@ import org.hibernate.annotations.NamedQuery;
 	})
 
 public class Inquilino  implements java.io.Serializable {
-
-
-     private Integer idInquilino;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer idInquilino;
      private String dni;
      private String nombre;
      private int edad;

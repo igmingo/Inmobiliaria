@@ -31,6 +31,10 @@ h6 {
 	font-size: 10px;
 }
 
+.divHomeImage img {
+	width: 770px;
+}
+
 .header {
 	width: 770px;
 	height: 50px;
@@ -61,7 +65,7 @@ h6 {
 }
 
 .header a.opcion:hover {
-		color: #ffff00;
+		color: #3f7f00;
 }
 
 #divTitulo {
@@ -123,13 +127,15 @@ h6 {
 
 .divTareas a.opcion:hover {
 	background: #d4d4aa;
+	color: #3f7f00;
 }
 
 /* DIV Busquedas para sacar la lista de productos */
 
 .divBusquedas {
-	background-color: #aad4ff;
+	background-color: #005fbf;
 	padding: 10px 0px 10px 0px;
+	color: white;
 }
 
 .divBusquedas input.busqueda[type="text"] {
@@ -142,11 +148,21 @@ h6 {
 	background-color: yellow;
 }
 
+.divBusquedas a {
+	color: white;
+	text-decoration: none;
+}
+
+.divBusquedas a:HOVER {
+	color: #3f7f00;
+	text-decoration: none;
+}
+
 /* DIV Centrado para sacar la lista de productos */
 .divListado {
 	width: 390px;
 	height: auto;
-	background-color: #FFF;
+	background-color: white;
 	border-width: 0px;
 	margin: 0 0px 0 190px;
 	padding: 10px;
@@ -180,7 +196,7 @@ h6 {
 }
 
 .divListado tr:nth-child(odd):hover {
-	background-color: #ffff00;
+	background-color: #3f7f00;
 }
 
 .divListado tr:nth-child(even) { #
@@ -188,13 +204,18 @@ h6 {
 }
 
 .divListado tr:nth-child(even):hover {
-	background-color: #ffff00;
+	background-color: #3f7f00;
 }
 
 .divListado th {
 	table-layout: fixed;
 	overflow: hidden;
-	
+		width: 390px;
+	height: auto;
+	background-color: #FFF;
+	border-width: 0px;
+	margin: 0 0px 0 190px;
+	padding: 10px;
 	padding: 5px;
 	border: 5px;
 	background-color: #005fbf;
@@ -254,7 +275,50 @@ h6 {
 
 /* DIV Derecho para sacar los detalles */
 
+.divPagDetalles {
+	width: 390px;
+	height: auto;
+	background-color: #FFF;
+	border-width: 0px;
+	padding: 10px;
+	text-align: left;
+}
 
+.tblPagDetalles {
+	background-color: #d4d4aa;
+}
+
+.tblPagDetalles th {
+	padding: 5px;
+	border: 5px;
+	background-color: #3f7f00;
+	text-align: center;
+	font-size: 14px;
+	font-family: Arial;
+	font-weight: bold;
+	color: #ffffff;
+}
+.tblPagDetalles td {
+	vertical-align: middle;
+	background-color: #d4d4aa;
+	border: 5px;
+	padding: 5px;
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: normal;
+	color: #000000;
+}
+
+.tblPagDetalles {
+	width: 390px;
+	background-color: #d4d4aa;
+}
+
+.tdRight {
+	text-align: right;
+}
+
+/* DIV Derecho para sacar los detalles */
 
 .divDetalles {
 	width: 150px;

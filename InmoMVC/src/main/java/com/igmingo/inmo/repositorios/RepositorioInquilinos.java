@@ -7,7 +7,6 @@ import java.util.Map;
 import org.hibernate.Hibernate;
 
 import com.igmingo.inmo.modelo.Inquilino;
-import com.igmingo.inmo.modelo.Propietario;
 
 public class RepositorioInquilinos extends Repositorio<Inquilino>{
 	
@@ -22,7 +21,7 @@ public class RepositorioInquilinos extends Repositorio<Inquilino>{
 		List<Inquilino> l=get(Inquilino.class);
 		Map<Integer, String> mapa=new HashMap<Integer, String>();
 		
-		mapa.put(0, "Sin Inquilino");
+//		mapa.put(0, "Sin Inquilino");
 		for (Inquilino inqui : l) {		
 			mapa.put(inqui.getIdInquilino(), inqui.getNombre());
 		}
