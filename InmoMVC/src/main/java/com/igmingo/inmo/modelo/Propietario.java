@@ -40,7 +40,6 @@ public class Propietario  implements java.io.Serializable {
 
     public Propietario() {
     }
-
 	
     public Propietario(String nombre, String dni) {
         this.nombre = nombre;
@@ -92,10 +91,6 @@ public class Propietario  implements java.io.Serializable {
     public void setInmuebles(Set<Inmueble> inmuebles) {
         this.inmuebles = inmuebles;
     }
-
-
-
-
 }
 
 

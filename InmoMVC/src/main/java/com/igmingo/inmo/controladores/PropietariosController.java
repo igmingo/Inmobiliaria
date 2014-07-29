@@ -63,8 +63,6 @@ public class PropietariosController {
 		Propietario p=daoPropietarios.get(Propietario.class, id);
 		Set<Inmueble> inmus = p.getInmuebles();
 		
-		
-
 		double propGana = 0;
 		Iterator<Inmueble> itListInmu=p.getInmuebles().iterator();
 		while (itListInmu.hasNext()) {
@@ -81,5 +79,4 @@ public class PropietariosController {
 		modelo.addAttribute("inmuebles", inmus);
 		return "detallepropietario";
 	}	
-	
 }

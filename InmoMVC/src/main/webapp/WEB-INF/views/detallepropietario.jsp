@@ -27,7 +27,6 @@
 			<tr>
 				<td>${inmueble.direccion }</td>
 				<td>${inmueble.precio }</td>
-				<td>${inmueble.inquilino.nombre }</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -15,7 +15,7 @@ import com.igmingo.inmo.repositorios.RepositorioInmuebles;
 import com.igmingo.inmo.repositorios.RepositorioPropietarios;
 
 @Controller
-public class EstadisticasController {
+public class PropietariosEstadisticaController {
 
 	@Autowired
 	RepositorioInmuebles daoInmuebles;
@@ -23,20 +23,45 @@ public class EstadisticasController {
 	@Autowired
 	RepositorioPropietarios daoPropietarios;
 		
-	@RequestMapping(value="estadistica.html")
+	@RequestMapping(value="estadisticapropietarios.html")
 	public String estadisticas(Model modelo) {
 		
 		List<Propietario> lProp=daoPropietarios.get(Propietario.class);
+		
 		int MaxInmus = 0;
+		double MasGana = 0;
+		
 		Propietario propiMax = new Propietario();
+		Propietario propiMasGana = new Propietario();
+		
 		Iterator<Propietario> itMaxInmu=lProp.iterator();
 		while (itMaxInmu.hasNext()) {
 			Propietario propi = daoPropietarios.get(Propietario.class,itMaxInmu.next().getIdPropietario());
-			int nInmuebles = propi.getInmuebles().size();
+
+			Set<Inmueble> inPropGanan = propi.getInmuebles();
+			int nInmuebles = inPropGanan.size();
+		
+			double propGana = 0;
+			
+			Iterator<Inmueble> itListInmu=inPropGanan.iterator();
+			while (itListInmu.hasNext()) {
+				Inmueble propiInmu = (Inmueble) itListInmu.next();
+				if (propiInmu.getInquilino()!=null) {
+					System.out.println(propiInmu.getDireccion() + " está alquilado, y gana " + propiInmu.getPrecio() + "€.");
+					propGana+=propiInmu.getPrecio();
+				}
+			}
+			
+			if (MasGana<propGana) {
+				MasGana=propGana;
+				propiMasGana = propi;
+			}
+			
 			if (MaxInmus<nInmuebles) {
 				MaxInmus=nInmuebles;
 				propiMax = propi;
 			}
+			
 		}
 		System.out.println(propiMax.getNombre()  + " tiene "+ MaxInmus + " inmuebles");
 		modelo.addAttribute("maxinmus", MaxInmus);
@@ -44,31 +69,6 @@ public class EstadisticasController {
 		
 		Set<Inmueble> inmus = propiMax.getInmuebles();	
 		modelo.addAttribute("inmupropmax", inmus);
-//		//tengo la lista de propietarios
-//		List<Propietario> lpMasInmuS = new ArrayList<Propietario>();	
-		double MasGana = 0;
-		Propietario propiMasGana = new Propietario();
-		Iterator<Propietario> itPropGanan=lProp.iterator();
-		while (itPropGanan.hasNext()) {
-			Propietario propi = daoPropietarios.get(Propietario.class,itPropGanan.next().getIdPropietario());
-			Set<Inmueble> inPropGanan = propi.getInmuebles();
-			
-			//calcula lo que gana cada propietario
-			double propGana = 0;
-			Iterator<Inmueble> itListInmu=inPropGanan.iterator();
-			while (itListInmu.hasNext()) {
-				Inmueble propiInmu = (Inmueble) itListInmu.next();
-				if (propiInmu.getInquilino()!=null) {
-					System.out.println(propiInmu.getDireccion() + " tiene inquilino y paga " + propiInmu.getPrecio() + "€.");
-					propGana+=propiInmu.getPrecio();
-				}
-			}
-			if (MasGana<propGana) {
-				MasGana=propGana;
-				propiMasGana = propi;
-			}
-			
-		}
 		
 		modelo.addAttribute("masgana", MasGana);
 		modelo.addAttribute("propmasgana", propiMasGana);
