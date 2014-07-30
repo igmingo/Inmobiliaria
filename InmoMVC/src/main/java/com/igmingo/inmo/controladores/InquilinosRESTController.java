@@ -25,7 +25,7 @@ public class InquilinosRESTController {
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
 	public @ResponseBody Inquilino inquilino(@PathVariable int id) {
 		
-		Inquilino i=daoInquilinos.get(Inquilino.class, id);
+		Inquilino i=daoInquilinos.get2(Inquilino.class, id);
 		
 		return i;
 	}

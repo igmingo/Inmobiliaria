@@ -7,7 +7,6 @@ import java.util.Map;
 import org.hibernate.Hibernate;
 
 import com.igmingo.inmo.modelo.Inmueble;
-import com.igmingo.inmo.modelo.Inquilino;
 
 public class RepositorioInmuebles extends Repositorio<Inmueble>{
 	

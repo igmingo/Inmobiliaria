@@ -25,7 +25,7 @@ public class PropietariosRESTController {
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
 	public @ResponseBody Propietario propietario(@PathVariable int id) {
 		
-		Propietario p=daoPropietarios.get(Propietario.class, id);
+		Propietario p=daoPropietarios.get2(Propietario.class, id);
 		
 		return p;
 	}

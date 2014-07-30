@@ -29,8 +29,8 @@ public class PropietarioAltaController {
 	public String alta(ModelMap modelo) {
 		PropietarioViewForm vistapropi = new PropietarioViewForm();
 		modelo.addAttribute("propietario", vistapropi);
+		
 		Map<Integer, String> linmu = daoInmuebles.getMapaOptions();
-
 		modelo.addAttribute("opciones_inmuebles", linmu);
 		return "altapropietario";
 	}

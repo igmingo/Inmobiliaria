@@ -47,7 +47,6 @@ public class PropietariosEstadisticaController {
 			while (itListInmu.hasNext()) {
 				Inmueble propiInmu = (Inmueble) itListInmu.next();
 				if (propiInmu.getInquilino()!=null) {
-					System.out.println(propiInmu.getDireccion() + " está alquilado, y gana " + propiInmu.getPrecio() + "€.");
 					propGana+=propiInmu.getPrecio();
 				}
 			}

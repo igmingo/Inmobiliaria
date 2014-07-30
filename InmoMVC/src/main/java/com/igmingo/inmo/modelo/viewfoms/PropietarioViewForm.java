@@ -12,16 +12,14 @@ public class PropietarioViewForm {
     private Integer idPropietario;
     private String nombre;
     private String dni;
-    private Set<Inmueble> inmuebles = new HashSet<Inmueble>(0);
     private Integer[] idInmueble;
 
 	public PropietarioViewForm(Integer idPropietario, String nombre,
-			String dni, Set<Inmueble> inmuebles, Integer[] idInmueble) {
+			String dni, Integer[] idInmueble) {
 		super();
 		this.idPropietario = idPropietario;
 		this.nombre = nombre;
 		this.dni = dni;
-		this.inmuebles = inmuebles;
 		this.idInmueble = idInmueble;
 	}
 
@@ -34,8 +32,7 @@ public class PropietarioViewForm {
 		propi.setIdPropietario(idPropietario);
 		propi.setNombre(nombre);
 		propi.setDni(dni);	
-		propi.setInmuebles(inmuebles);
-				
+
 		Set<Inmueble> s=new HashSet<Inmueble>();
 		for (Integer inmueble : idInmueble) {
 			Inmueble i=new Inmueble();
@@ -51,7 +48,6 @@ public class PropietarioViewForm {
 		setIdPropietario(propi.getIdPropietario());
 		setNombre(propi.getNombre());
 		setDni(propi.getDni());
-		setInmuebles(propi.getInmuebles());
 		
 		idInmueble=new Integer[propi.getInmuebles().size()];
 		int i=0;
@@ -82,14 +78,6 @@ public class PropietarioViewForm {
 
 	public void setDni(String dni) {
 		this.dni = dni;
-	}
-
-	public Set<Inmueble> getInmuebles() {
-		return inmuebles;
-	}
-
-	public void setInmuebles(Set<Inmueble> inmuebles) {
-		this.inmuebles = inmuebles;
 	}
 
 	public Integer[] getIdInmueble() {

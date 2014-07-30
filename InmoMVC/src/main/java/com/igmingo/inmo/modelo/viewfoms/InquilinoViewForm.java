@@ -12,7 +12,6 @@ public class InquilinoViewForm {
     private String nombre;
     private int edad;
     private Boolean trabaja;
-    private Set<Inmueble> inmuebles = new HashSet<Inmueble>(0);
     private Integer[] idInmueble;
 
 	public InquilinoViewForm() {
@@ -20,14 +19,13 @@ public class InquilinoViewForm {
 	}
 
 	public InquilinoViewForm(Integer idInquilino, String dni, String nombre,
-			int edad, Boolean trabaja, Set<Inmueble> inmuebles, Integer[] idInmueble) {
+			int edad, Boolean trabaja, Integer[] idInmueble) {
 		super();
 		this.idInquilino = idInquilino;
 		this.dni = dni;
 		this.nombre = nombre;
 		this.edad = edad;
 		this.trabaja = trabaja;
-		this.inmuebles = inmuebles;
 		this.idInmueble = idInmueble;
 	}
 
@@ -38,7 +36,6 @@ public class InquilinoViewForm {
 		inqui.setDni(dni);
 		inqui.setEdad(edad);	
 		inqui.setTrabaja(trabaja);
-		inqui.setInmuebles(inmuebles);
 		
 		Set<Inmueble> s=new HashSet<Inmueble>();
 		for (Integer inmueble : idInmueble) {
@@ -57,7 +54,6 @@ public class InquilinoViewForm {
 		setDni(inqui.getDni());
 		setEdad(inqui.getEdad());
 		setTrabaja(inqui.getTrabaja());
-		setInmuebles(inqui.getInmuebles());
 		
 		idInmueble=new Integer[inqui.getInmuebles().size()];
 		int i=0;
@@ -106,11 +102,12 @@ public class InquilinoViewForm {
 		this.trabaja = trabaja;
 	}
 
-	public Set<Inmueble> getInmuebles() {
-		return inmuebles;
+	public Integer[] getIdInmueble() {
+		return idInmueble;
 	}
 
-	public void setInmuebles(Set<Inmueble> inmuebles) {
-		this.inmuebles = inmuebles;
+	public void setIdInmueble(Integer[] idInmueble) {
+		this.idInmueble = idInmueble;
 	}
+
 }

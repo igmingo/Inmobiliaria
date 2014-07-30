@@ -25,7 +25,12 @@
 		</tr>
 		<tr>
 			<td>Trabaja</td>
-			<td class="tdRight">${inquilino.trabaja}</td>
+			<td class="tdRight">
+			<c:choose>
+				<c:when test="${inquilino.trabaja==true}">Sí</c:when>
+				<c:otherwise>No</c:otherwise>
+			</c:choose>
+			</td>		
 		</tr>
 	</table>
 	<table class="tblPagDetalles"><tr><th colspan="2">Inmuebles alquilados por ${inquilino.nombre}</th></tr>

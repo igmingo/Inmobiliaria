@@ -17,12 +17,18 @@ public class RepositorioInquilinos extends Repositorio<Inquilino>{
 		return inqui;			
 	}
 	
+	public Inquilino get2(Class<Inquilino> tipo, int id) {
+		Inquilino inqui=super.get(tipo, id);
+		return inqui;			
+	}
+	
 	public Map<Integer, String> getMapaOptions(){
 		List<Inquilino> l=get(Inquilino.class);
 		Map<Integer, String> mapa=new HashMap<Integer, String>();
 		
 //		mapa.put(0, "Sin Inquilino");
-		for (Inquilino inqui : l) {		
+		for (Inquilino inqui : l) {	
+			Hibernate.initialize(inqui.getInmuebles());
 			mapa.put(inqui.getIdInquilino(), inqui.getNombre());
 		}
 		return mapa;

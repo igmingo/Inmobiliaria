@@ -61,17 +61,17 @@
 			<table id="tblDatos">
 				<thead>
 					<tr>
-						<th>id</th>
-						<th>Dirección</th>
-						<th>Precio</th>
-						<th>Acciones</th>
+						<th class="tdId">id</th>
+						<th class="tdNombre">Dirección</th>
+						<th class="tdPrecio">Precio</th>
+						<th class="tdAcciones">Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${inmuebles }" var="inmueble">
 						<tr>
 							<td class="tdId">${inmueble.idInmueble }</td>
-							<td>${inmueble.direccion }</td>
+							<td class="tdNombre">${inmueble.direccion }</td>
 							<td class="tdPrecio" >${inmueble.precio }€</td>
 							<td class="tdAcciones">
 								<a href="#" id="lnkDetalle" onclick="evento(${inmueble.idInmueble})" title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
@@ -170,8 +170,8 @@ function buscar() {
 		for(var i=0;i<res.length;i++){
 			var h="";
 			h+="<tr>";
-			h+="<td>"+res[i].idInmueble+"</td>";
-			h+="<td>"+res[i].direccion+"</td>";
+			h+="<td class='tdId'>"+res[i].idInmueble+"</td>";
+			h+="<td class='tdNombre'>"+res[i].direccion+"</td>";
 			h+="<td class='tdPrecio'>"+res[i].precio+"€</td>";
 			h+="<td class='tdAcciones'>";
 			h+="<a href='#' id='lnkDetalle' onclick='evento("+res[i].idInmueble+")' title='Ver Detalles del Inmueble'><span class='icon-eye'></span></a>";

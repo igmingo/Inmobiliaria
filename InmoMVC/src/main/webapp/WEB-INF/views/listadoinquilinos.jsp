@@ -59,18 +59,18 @@
 			<table id="tblDatos">
 				<thead>
 					<tr>
-						<th>id</th>
-						<th>Nombre</th>
-						<th>DNI</th>
-						<th>Acciones</th>
+						<th class="tdId">id</th>
+						<th class="tdNombre">Nombre</th>
+<!-- 						<th class="tdDNI">DNI</th> -->
+						<th class="tdAcciones">Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${inquilinos }" var="inquilino">
 						<tr>
 							<td class="tdId">${inquilino.idInquilino }</td>
-							<td>${inquilino.nombre }</td>
-							<td class="tdDNI" >${inquilino.dni }</td>
+							<td class="tdNombre">${inquilino.nombre }</td>
+<%-- 							<td class="tdDNI">${inquilino.dni }</td> --%>
 							<td class="tdAcciones">
 								<a href="#" id="lnkDetalle" onclick="evento(${inquilino.idInquilino})" title="Ver Detalles del Inquilino"><span class="icon-eye"></span></a>
 								
@@ -133,8 +133,8 @@ function buscarDNI() {
 			var h="";
 			h+="<tr>";
 			h+="<td class='tdId'>"+res[i].idInquilino+"</td>";
-			h+="<td>"+res[i].nombre+"</td>";
-			h+="<td class='tdDNI'>"+res[i].dni+"</td>";
+			h+="<td class='tdNombre'>"+res[i].nombre+"</td>";
+// 			h+="<td class='tdDNI'>"+res[i].dni+"</td>";
 			h+="<td class='tdAcciones'>";
 			h+="<a href='#' id='lnkDetalle' onclick='evento("+res[i].idInquilino+")' title='Ver Detalles del Inquilino'><span class='icon-eye'></span></a>";
 			h+="<a href='modificarInquilino-"+res[i].idInquilino+ ".html' title='Editar Inquilino'><span class='icon-pencil'></span></a>";	
@@ -161,7 +161,7 @@ function buscar() {
 			h+="<tr>";
 			h+="<td>"+res[i].idInquilino+"</td>";
 			h+="<td>"+res[i].nombre+"</td>";
-			h+="<td class='tdDNI'>"+res[i].dni+"</td>";
+// 			h+="<td class='tdDNI'>"+res[i].dni+"</td>";
 			h+="<td class='tdAcciones'>";
 			h+="<a href='#' id='lnkDetalle' onclick='evento("+res[i].idInquilino+")' title='Ver Detalles del Inquilino'><span class='icon-eye'></span></a>";
 			h+="<a href='modificarInquilino-"+res[i].idInquilino+ ".html' title='Editar Inquilino'><span class='icon-pencil'></span></a>";	
@@ -190,6 +190,8 @@ function evento(id){
 		var h="";
 		h+="<tr><td>Nombre:</td><td>"+res.nombre+"</td></tr>";
 		h+="<tr><td>DNI:</td><td>"+res.dni+"</td></tr>";
+		h+="<tr><td>Edad:</td><td>"+res.edad+"</td></tr>";
+		h+="<tr><td>Trabaja:</td><td>"+res.trabaja+"</td></tr>";
 		tabla.append(h);
 
 		});

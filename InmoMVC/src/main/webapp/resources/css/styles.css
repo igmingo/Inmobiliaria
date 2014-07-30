@@ -210,9 +210,8 @@ h6 {
 .divListado th {
 	table-layout: fixed;
 	overflow: hidden;
-		width: 390px;
 	height: auto;
-	background-color: #FFF;
+	background-color: white;
 	border-width: 0px;
 	margin: 0 0px 0 190px;
 	padding: 10px;
@@ -231,7 +230,7 @@ h6 {
 .divListado td {
 	table-layout: fixed;
 	overflow: hidden;
-	padding: 3px 0 3px 0;
+	padding: 3px 3px 3px 3px;
 	border: 5px;
 	vertical-align: middle;
 	font-size: 14px;
@@ -242,18 +241,13 @@ h6 {
 
 .tdId {
 	text-align: left;
-	width: 30px;
-    max-width:30px;
-    min-width:30px;
-	table-layout: fixed;
+	width: 35px;
+    max-width:35px;
+    min-width:35px;
 }
 
-.tdAcciones {
-	text-align: center;
-	width: 95px;
-    max-width:95px;
-    min-width:95px;
-	table-layout: fixed;
+.tdNombre {
+	text-align: left;
 }
 
 .tdPrecio {
@@ -261,21 +255,37 @@ h6 {
 	width: 75px;
     max-width:75px;
     min-width:75px;
-	table-layout: fixed;
 }
 
 .tdDNI {
 	text-transform:uppercase;
 	text-align: right;
-	width: 75px;
-    max-width:75px;
-    min-width:75px;
-	table-layout: fixed;
+	font-size: 10px;
+	width: 90px;
+    max-width:90px;
+    min-width:90px;
+}
+
+.tdAcciones {
+	text-align: center;
+	width: 83px;
+    max-width:83px;
+    min-width:83px;
+    background-color: #005fbf;
+}
+
+.tdAcciones a {
+    color: white;
+}
+
+.tdAcciones a:hover {
+    color: #3f7f00;
 }
 
 /* DIV Derecho para sacar los detalles */
 
 .divPagDetalles {
+	margin:0 auto 0 auto;
 	width: 390px;
 	height: auto;
 	background-color: #FFF;

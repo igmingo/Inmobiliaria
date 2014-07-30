@@ -15,6 +15,11 @@ public class RepositorioPropietarios extends Repositorio<Propietario>{
 		Hibernate.initialize(p.getInmuebles());
 		return p;			
 	}
+	
+	public Propietario get2(Class<Propietario> tipo, int id) {
+		Propietario p=super.get(tipo, id);
+		return p;			
+	}
 		
 	public Map<Integer, String> getMapaOptions(){
 		List<Propietario> l=get(Propietario.class);
