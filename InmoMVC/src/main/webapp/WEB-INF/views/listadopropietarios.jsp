@@ -16,52 +16,66 @@
 			<div id="divTitulo">
 				<h1>Inmobiliaria Teide IV</h1>
 			</div>
-				<ul>
-					<li class="opcion"><h1><a class="opcion" href="listadoinmuebles.html" title="INMUEBLES"><span class="icon-home"></span></a></h1></li>
-					<li class="opcion"><h1><a class="opcion" href="listadopropietarios.html" title="PROPIETARIOS"><span class="icon-user2"></span></a></h1></li>
-					<li class="opcion"><h1><a class="opcion" href="listadoinquilinos.html" title="INQUILINOS"><span class="icon-user"></span></a></h1></li>
-				</ul>
-		</div>
-		
-		<div id="Tareas" class="divTareas">
-			<h2>Tareas</h2>
-			<ul class="opcion">
-				<li class="opcion"><a class="opcion" href="altaInmueble.html"><span class="icon-home"></span> Nuevo Inmueble</a></li>
-				<li class="opcion"><a class="opcion" href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
-				<li class="opcion"><a class="opcion" href="altaInquilino.html"><span class="icon-user"></span> Nuevo Inquilino</a></li>
+			<ul>
+				<li class="opcion"><h1>
+						<a class="opcion" href="listadoinmuebles.html" title="INMUEBLES"><span
+							class="icon-home"></span></a>
+					</h1></li>
+				<li class="opcion"><h1>
+						<a class="opcion" href="listadopropietarios.html"
+							title="PROPIETARIOS"><span class="icon-user2"></span></a>
+					</h1></li>
+				<li class="opcion"><h1>
+						<a class="opcion" href="listadoinquilinos.html" title="INQUILINOS"><span
+							class="icon-user"></span></a>
+					</h1></li>
 			</ul>
 		</div>
-
-		<div id="divDetalles" class="divDetalles" >
-			<h2>Detalles</h2>
-			<table id="tblDetalles" class="tblDetalles">
-				<thead>
-					<tr>
-						<th>Detalles</th>
-						<th>Propietario</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-					</tr>
-				</tbody>
-			</table>
+		<div class="divColumna">
+			<div id="Tareas" class="divTareas">
+				<h2>Tareas</h2>
+				<ul class="opcion">
+					<li class="opcion"><a class="opcion" href="altaInmueble.html"><span
+							class="icon-home"></span> Nuevo Inmueble</a></li>
+					<li class="opcion"><a class="opcion"
+						href="altaPropietario.html"><span class="icon-user2"></span>
+							Nuevo Propietario</a></li>
+					<li class="opcion"><a class="opcion" href="altaInquilino.html"><span
+							class="icon-user"></span> Nuevo Inquilino</a></li>
+				</ul>
+			</div>
+			<div id="divDetalles" class="divDetalles">
+				<h2>Detalles</h2>
+				<table id="tblDetalles" class="tblDetalles">
+					<thead>
+						<tr>
+							<th>Detalles</th>
+							<th>Propietario</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-
 		<div id="divLista" class="divListado">
 			<h2>Listado de Propietarios</h2>
 			<div class="divBusquedas">
-					<input class="busqueda" type="text" id="txtBuscar" placeholder="Nombre Inquilino" size="22">
-					<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>&nbsp;&nbsp;&nbsp;
-					<input class="busqueda" type="text" id="txtDNI" placeholder="DNI con letra"  size="10">
-					<a id="btnDNI" href="javascript:buscarDNI()"><span class="icon-search"></span></a>
+				<input class="busqueda" type="text" id="txtBuscar"
+					placeholder="Nombre Inquilino" size="22"> <a id="btnBuscar"
+					href="javascript:buscar()"><span class="icon-search"></span></a>&nbsp;&nbsp;&nbsp;
+				<input class="busqueda" type="text" id="txtDNI"
+					placeholder="DNI con letra" size="10"> <a id="btnDNI"
+					href="javascript:buscarDNI()"><span class="icon-search"></span></a>
 			</div>
 			<table id="tblDatos">
 				<thead>
 					<tr>
 						<th class="tdId">id</th>
 						<th class="tdNombre">Nombre</th>
-<!-- 						<th class="tdDNI">DNI</th> -->
+						<!-- 						<th class="tdDNI">DNI</th> -->
 						<th class="tdAcciones">Acciones</th>
 					</tr>
 				</thead>
@@ -70,21 +84,27 @@
 						<tr>
 							<td class="tdId">${propietario.idPropietario }</td>
 							<td class="tdNombre">${propietario.nombre }</td>
-<%-- 							<td class="tdDNI" >${propietario.dni }</td> --%>
-							<td class="tdAcciones">
-								<a href="#" id="lnkDetalle" onclick="evento(${propietario.idPropietario})" title="Ver Detalles del Propietario"><span class="icon-eye"></span></a>
-								
-								<a href="modificarPropietario-${propietario.idPropietario}.html" title="Editar Propietario"><span class="icon-pencil"></span></a>
-													
-								<a	href="propietario-${propietario.idPropietario}.html" title="Abrir página de Detalles"><span class="icon-file"></span></a>
-								
-								<a href="#" id="lnkBorrar" onclick="borrar(${propietario.idPropietario})" title="Eliminar Propietario"><span class="icon-remove"></span></a></td>
+							<%-- 							<td class="tdDNI" >${propietario.dni }</td> --%>
+							<td class="tdAcciones"><a href="#" id="lnkDetalle"
+								onclick="evento(${propietario.idPropietario})"
+								title="Ver Detalles del Propietario"><span class="icon-eye"></span></a>
+
+								<a href="modificarPropietario-${propietario.idPropietario}.html"
+								title="Editar Propietario"><span class="icon-pencil"></span></a>
+
+								<a href="propietario-${propietario.idPropietario}.html"
+								title="Abrir página de Detalles"><span class="icon-file"></span></a>
+
+								<a href="#" id="lnkBorrar"
+								onclick="borrar(${propietario.idPropietario})"
+								title="Eliminar Propietario"><span class="icon-remove"></span></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<div class="divBusquedas">
-				<a class="opcion" href="estadisticapropietarios.html"><span	class="icon-stats"></span> Estadisticas de Propietarios</a>
+				<a class="opcion" href="estadisticapropietarios.html"><span
+					class="icon-stats"></span> Estadisticas de Propietarios</a>
 			</div>
 		</div>
 		<div class="divfooter">

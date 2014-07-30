@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href='<c:url value="/resources/css/styles.css" />' media="all" />
+<link rel="stylesheet"
+	href='<c:url value="/resources/css/styles.css" />' media="all" />
 <title>Listado de Inmuebles</title>
 </head>
 
@@ -15,48 +16,64 @@
 			<div id="divTitulo">
 				<h1>Inmobiliaria Teide IV</h1>
 			</div>
-				<ul>
-					<li class="opcion"><h1><a class="opcion" href="listadoinmuebles.html" title="INMUEBLES"><span class="icon-home"></span></a></h1></li>
-					<li class="opcion"><h1><a class="opcion" href="listadopropietarios.html" title="PROPIETARIOS"><span class="icon-user2"></span></a></h1></li>
-					<li class="opcion"><h1><a class="opcion" href="listadoinquilinos.html" title="INQUILINOS"><span class="icon-user"></span></a></h1></li>
-				</ul>
-		</div>
-
-		<div id="Tareas" class="divTareas">
-			<h2>Tareas</h2>
-			<ul class="opciones">
-				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaInmueble.html"><span class="icon-home"></span> Nuevo Inmueble</a></li>
-				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaPropietario.html"><span class="icon-user2"></span> Nuevo Propietario</a></li>
-				<li class="opcion"><a id="btnAlta" class="opcion"
-					href="altaInquilino.html"><span class="icon-user"></span> Nuevo Inquilino</a></li>
+			<ul>
+				<li class="opcion"><h1>
+						<a class="opcion" href="listadoinmuebles.html" title="INMUEBLES"><span
+							class="icon-home"></span></a>
+					</h1></li>
+				<li class="opcion"><h1>
+						<a class="opcion" href="listadopropietarios.html"
+							title="PROPIETARIOS"><span class="icon-user2"></span></a>
+					</h1></li>
+				<li class="opcion"><h1>
+						<a class="opcion" href="listadoinquilinos.html" title="INQUILINOS"><span
+							class="icon-user"></span></a>
+					</h1></li>
 			</ul>
 		</div>
-
-		<div class="divDetalles" id="divDetalles">
-			<h2>Detalles</h2>
-			<table id="tblDetalles">
-				<thead>
-					<tr>
-						<th>Detalles</th>
-						<th>Inmueble</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-					</tr>
-				</tbody>
-			</table>
+		<div class="divColumna">
+			<div id="Tareas" class="divTareas">
+				<h2>Tareas</h2>
+				<ul class="opciones">
+					<li class="opcion"><a id="btnAlta" class="opcion"
+						href="altaInmueble.html"><span class="icon-home"></span> Nuevo
+							Inmueble</a></li>
+					<li class="opcion"><a id="btnAlta" class="opcion"
+						href="altaPropietario.html"><span class="icon-user2"></span>
+							Nuevo Propietario</a></li>
+					<li class="opcion"><a id="btnAlta" class="opcion"
+						href="altaInquilino.html"><span class="icon-user"></span>
+							Nuevo Inquilino</a></li>
+				</ul>
+			</div>
+			<div class="divDetalles" id="divDetalles">
+				<h2>Detalles</h2>
+				<table id="tblDetalles">
+					<thead>
+						<tr>
+							<th>Detalles</th>
+							<th>Inmueble</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-
 		<div id="divLista" class="divListado">
 			<h2>Listado de Inmuebles</h2>
 			<div class="divBusquedas">
-					<input class="busqueda" type="text" id="txtBuscar" placeholder="Dirección inmueble" size="22">
-					<a id="btnBuscar" href="javascript:buscar()"><span class="icon-search"></span></a>&nbsp;&nbsp;&nbsp;
-					<input class="busqueda" type="text" id="txtEntre1" placeholder="min €"  size="5">-<input class="busqueda" type="text" id="txtEntre2" placeholder="max €" size="5">
-					<a id="btnEntre" href="javascript:entre()"><span class="icon-search"></span></a>
+				<input class="busqueda" type="text" id="txtBuscar"
+					placeholder="Dirección inmueble" size="22"> <a
+					id="btnBuscar" href="javascript:buscar()"><span
+					class="icon-search"></span></a>&nbsp;&nbsp;&nbsp; <input
+					class="busqueda" type="text" id="txtEntre1" placeholder="min €"
+					size="5">-<input class="busqueda" type="text"
+					id="txtEntre2" placeholder="max €" size="5"> <a
+					id="btnEntre" href="javascript:entre()"><span
+					class="icon-search"></span></a>
 			</div>
 			<table id="tblDatos">
 				<thead>
@@ -72,24 +89,29 @@
 						<tr>
 							<td class="tdId">${inmueble.idInmueble }</td>
 							<td class="tdNombre">${inmueble.direccion }</td>
-							<td class="tdPrecio" >${inmueble.precio }€</td>
-							<td class="tdAcciones">
-								<a href="#" id="lnkDetalle" onclick="evento(${inmueble.idInmueble})" title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
-								
-								<a href="modificarInmueble-${inmueble.idInmueble}.html" title="Editar Inmueble"><span class="icon-pencil"></span></a>
-													
-								<a	href="detalle-${inmueble.idInmueble}.html" title="Abrir página de Detalles"><span class="icon-file"></span></a>
-								
-								<a href="#" id="lnkBorrar" onclick="borrar(${inmueble.idInmueble})" title="Eliminar Inmueble"><span class="icon-remove"></span></a></td>
+							<td class="tdPrecio">${inmueble.precio }€</td>
+							<td class="tdAcciones"><a href="#" id="lnkDetalle"
+								onclick="evento(${inmueble.idInmueble})"
+								title="Ver Detalles del Inmueble"><span class="icon-eye"></span></a>
+
+								<a href="modificarInmueble-${inmueble.idInmueble}.html"
+								title="Editar Inmueble"><span class="icon-pencil"></span></a> <a
+								href="detalle-${inmueble.idInmueble}.html"
+								title="Abrir página de Detalles"><span class="icon-file"></span></a>
+
+								<a href="#" id="lnkBorrar"
+								onclick="borrar(${inmueble.idInmueble})"
+								title="Eliminar Inmueble"><span class="icon-remove"></span></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<div class="divBusquedas">
-				<a class="opcion" href="estadisticainmuebles.html"><span class="icon-stats"></span> Estadisticas de Inmuebles</a>
+				<a class="opcion" href="estadisticainmuebles.html"><span
+					class="icon-stats"></span> Estadisticas de Inmuebles</a>
 			</div>
 		</div>
-		
+
 		<div class="divfooter">
 			<h6>
 				&copy; 2014, <a href="http://www.IgMingo.com">www.IgMingo.com</a>.

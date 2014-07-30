@@ -19,7 +19,7 @@ h2 {
 	font-size: 20px;
 	color: #486895;
 	text-transform: capitalize;
-	margin: 0 0 5px 0;
+	margin: 5px 0 5px 0;
 }
 
 h6 {
@@ -89,16 +89,21 @@ h6 {
 	height: auto;
 }
 
+.divColumna {
+	float: right;
+	width: 170px;
+}
+
 /* DIV Izquierdo para sacar la lista de tareas */
 .divTareas {
 	clear: both;
-	float: left;
+	float: right;
 	width: 170px;
 	height: auto;
 	background-color: #aad4ff;
 	border-width: 0px;
 	margin: 0 0 0 0px;
-	padding: 10px;
+	padding: 0px;
 }
 
 .divTareas ul {
@@ -114,7 +119,7 @@ h6 {
 .divTareas li.opcion {
 /* 	float: left; */
 	text-align: left;
-	margin: 0px 1px;
+	margin: 0px 0px;
 	background: #3f7f00;
 }
 
@@ -160,12 +165,12 @@ h6 {
 
 /* DIV Centrado para sacar la lista de productos */
 .divListado {
-	width: 390px;
+	width: 580px;
 	height: auto;
-	background-color: white;
+	background-color: #D5EAFF;
 	border-width: 0px;
-	margin: 0 0px 0 190px;
-	padding: 10px;
+	margin: 0 0 0 0;
+	padding: 1 10 10 10;
 }
 
 .divListado a {
@@ -179,7 +184,7 @@ h6 {
 	padding: 5px;
 	border: 5px;
 /* 	table-layout: fixed; */
- 	width: 390px;
+ 	width: 580px;
 }
 
 .divListado tbody {
@@ -199,8 +204,8 @@ h6 {
 	background-color: #3f7f00;
 }
 
-.divListado tr:nth-child(even) { #
-	aaaaaa background-color: #ffffff;
+.divListado tr:nth-child(even) { 
+	background-color: #ffffff;
 }
 
 .divListado tr:nth-child(even):hover {
@@ -331,13 +336,13 @@ h6 {
 /* DIV Derecho para sacar los detalles */
 
 .divDetalles {
-	width: 150px;
+	width: 170px;
 	height: auto;
 	background-color: #aad4ff;
 	border-width: 0px;
 	margin: 0px;
-	float: right;
-	padding: 10px;
+ 	float: right;
+	padding: 0px;
 }
 
 .divDetalles table {
@@ -346,7 +351,7 @@ h6 {
 		border-spacing: 0;
 		padding: 5px;
 		border: 10px;
-		width: 150px;
+		width: 170px;
 }
 
 .divDetalles tbody {
